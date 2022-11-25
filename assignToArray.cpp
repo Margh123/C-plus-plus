@@ -34,22 +34,30 @@ int main () {
 	string overall; // Will be passed to tokenizer
 
 	int getI;
-	string getS;
+	string getS = "";
 	// Read from file and assign value to each objects
 
 	fstream myfile("example.txt");
 	if(myfile.is_open()){
+		string* ptr; //pointer to hold address
+		int count = 0;
 		while( getline (myfile,overall)){
 
+			ptr = stringTokenizer(overall); //address of a
+			getI = stoi(ptr[0]);
+			// Getting getS is error prone for now
+			O[count].a = getI;
+			O[count].st = getS;
+			count++;
 		}
 		myfile.close();
 	} else {
 		return -1; //Fail
 	}
-	string* ptr; //pointer to hold address
-	string i;
-	ptr = stringTokenizer("  Hello World 123   huhu  "); //address of a
-	cout<<ptr[3];
 
 
+
+	// Done assigning values from the file to each objects
+
+	cout<<O[6].a;
 }
